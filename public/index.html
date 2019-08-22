@@ -1,15 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+   <head>
+      <title>Pixelate</title>
+      <!-- This gets us our fun 8-bit font from Google Fonts -->
+      <link
+         href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+         rel="stylesheet"
+      />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hi</title>
-</head>
+      <!-- loads our own CSS file -->
+      <link rel="stylesheet" href="./style.css" />
+   </head>
 
-<body>
-    <h1>Hi</h1>
-</body>
-
+   <body>
+      <h1>Pixelate</h1>
+      <div>
+         <button id="add-row">Generate Maze</button>
+         <button id="submit">Submit Maze</button>
+         <select>
+            <!-- add options here! -->
+            <option value="black">Wall</option>
+            <option value="yellow">Coin</option>
+         </select>
+      </div>
+      <table id="table">
+         <!-- <tr>
+            <td></td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr> -->
+      </table>
+   </body>
+   <!-- loads our JavaScript file -->
+   <script type="text/javascript" src="./script.js"></script>
 </html>
