@@ -32,7 +32,18 @@ async function submitMaze(arr) {
          cellIdx++;
       }
    }
-   await axios.post('/api/maze', { arr, name });
+   try {
+      const response = await axios.post('/api/maze', { arr, name });
+      if (response) {
+         alert('Created Successfully!');
+      } else {
+         throw new Error('Not created. Try using a different maze name.');
+      }
+   } catch (error) {
+      alert(
+         'Not created. Try using a different maze name, maze names must be unique in our database!',
+      );
+   }
 }
 const arr = new Array(9).fill(0);
 for (let i = 0; i < arr.length; i++) {
