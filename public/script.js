@@ -11,8 +11,9 @@ function colorize(event) {
    }
 }
 
-function submitMaze(arr) {
+async function submitMaze(arr) {
    const cells = document.getElementsByTagName('td');
+   const name = document.getElementById('name').value;
    let cellIdx = 0;
    for (let i = 0; i < arr.length; i++) {
       for (let j = 0; j < arr[0].length; j++) {
@@ -31,7 +32,7 @@ function submitMaze(arr) {
          cellIdx++;
       }
    }
-   console.log(arr);
+   await axios.post('/api/maze', { arr, name });
 }
 const arr = new Array(9).fill(0);
 for (let i = 0; i < arr.length; i++) {
@@ -61,8 +62,6 @@ for (let i = 0; i < arr[0].length; i++) {
 table.appendChild(newRow);
 const cells = document.getElementsByTagName('td');
 for (let i = 0; i < cells.length; i++) {
-   let start = 8;
-   let addedSeven = false;
    if (i <= 7) {
       cells[i].className = 'black disabled';
    } else if (i > 7 && i % 8 === 0) {
@@ -74,4 +73,10 @@ const button = document.getElementById('add-row');
 const submitButton = document.getElementById('submit');
 // button.addEventListener('click', createRow);
 submitButton.addEventListener('click', () => submitMaze(arr));
+table.addEventListener('mousedown', () => {
+   table.addEventListener('mouseover', colorize);
+});
 table.addEventListener('click', colorize);
+table.addEventListener('mouseup', () => {
+   table.removeEventListener('mouseover', colorize, false);
+});
