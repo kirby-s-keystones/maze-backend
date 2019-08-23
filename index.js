@@ -18,6 +18,7 @@ const createApp = () => {
     // api routes
     app.use('/api', require('./api'))
 
+    app.use('/mazes', require('./viewRouter'));
 
     // any remaining requests with an extension (.js, .css, etc.) send 404
     app.use((req, res, next) => {
