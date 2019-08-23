@@ -11,31 +11,20 @@ module.exports = (mazes) => html`<!DOCTYPE html>
      <link href=“../public/style.css” rel=“stylesheet”>
    </head>
    <body>
-      <div class="text-center mb-1">
+
+   
+      <div class="text-center">
          <h1>A Maze Thing</h1>
          <h3 class="text-center">Mazes</h3>
          ${mazes.map(maze => {
-          return (html`<h4>${maze.name}</h4>
+  return (html`<h4>${maze.name}</h4>
+          <h3></h3>
             <table>
-              ${maze.maze.map(singleMaze => {
-                return (singleMaze.map(el => {
-                  // return (el.map(singleEl => {
-                    return (
-                    `<tr>
-                      for(let i=0; i<singleMaze.length; i++){
-                        if(i>7 && i%8 ===0){
-                          <br>
-                        }
-                        <td>${singleMaze.el}<td>
-                      }
-                    </tr>
-                    `)})
-                // )})
-              )})}
+              
             </table>
           `);
 
-         })}
+})}
       </div>
       <table id="table"></table>
    </body>
@@ -45,4 +34,3 @@ module.exports = (mazes) => html`<!DOCTYPE html>
       crossorigin="anonymous"
    ></script>
  </html>`;
-

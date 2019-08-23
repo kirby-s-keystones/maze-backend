@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const layout = require('../views/layout');
+const path = require('path');
 
 const { Maze } = require('../db');
 
@@ -10,13 +11,7 @@ router.get('/', async (req, res, next) => {
       if (!mazes.length) {
          res.send('There are no mazes!');
       } else {
-         const parsedMazes = mazes.map(currentMaze => {
-            return {
-               name: currentMaze.name,
-               maze: JSON.parse(currentMaze.mazeArray),
-            };
-         });
-         res.send(layout(parsedMazes));
+         res.sendFile(path.join(__dirname, '..', 'public/mazes.html'))
       }
    } catch (error) {
       next(error);
