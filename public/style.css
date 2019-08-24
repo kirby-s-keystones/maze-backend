@@ -44,6 +44,10 @@ td {
    background-color: lightgrey;
 }
 
+li {
+   list-style-type: none
+}
+
 .black {
    background-color: black;
 }
