@@ -6,6 +6,10 @@
 }
 
 html {
+  background-color: #2b2a2a;
+}
+
+#bgImage {
   width: 100vw;
   height: 100vh;
   background-color: #000;
@@ -88,6 +92,7 @@ li {
    list-style-type: none;
    flex-direction: row;
    padding: 55px;
+   width: 100%;
 }
 
 .black {
@@ -108,6 +113,10 @@ li {
 
 .col-8 {
    text-align: center;
+}
+
+.mazes {
+  width: 100%;
 }
 
 #list {

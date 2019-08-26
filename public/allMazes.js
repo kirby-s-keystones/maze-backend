@@ -11,9 +11,9 @@ async function getMazes() {
             <div class="row">
                 <div class="col-4">
                 <div class="col-8">
-                    ${maze.name}
+                    <h3>${maze.name}</h3>
                 </div>
-                  <table>
+                  <table class="mazes">
                   ${
                     maze.maze.map(row => {
                       return (
