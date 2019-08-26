@@ -20,7 +20,7 @@ async function getMazes() {
                         `<tr>
                         ${
                           row.map(cell => {
-                            return (`<td class="${cell ? "black" : ""}"></td>`);
+                            return (`<td class="${cell === 1 ? "black" :  ""}"></td>`);
                           }).join('')
                         }
                         </tr>`
