@@ -4,7 +4,9 @@ const Sequelize = require('sequelize');
 //     logging: false
 // });
 
-const db = new Sequelize(`postgres://localhost:5432/amazething`, {
-    logging: false // so we don't see all the SQL queries getting made
-})
+const databaseURL =
+   process.env.DATABASE_URL || 'postgres://localhost:5432/amazething';
+const db = new Sequelize(databaseURL, {
+   logging: false, // so we don't see all the SQL queries getting made
+});
 module.exports = db;
