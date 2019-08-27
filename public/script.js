@@ -45,49 +45,64 @@ async function submitMaze(arr) {
       );
    }
 }
-const arr = new Array(9).fill(0);
-for (let i = 0; i < arr.length; i++) {
-   let newArr = new Array(8).fill(0);
-   arr[i] = newArr;
-}
 
-const table = document.getElementById('table');
+function createCanvas(arr) {
+   const table = document.getElementById('table');
 
-for (let i = 0; i < arr.length - 1; i++) {
+   for (let i = 0; i < arr.length - 1; i++) {
+      let newRow = document.createElement('tr');
+      for (let j = 0; j < arr[0].length; j++) {
+         let newCell = document.createElement('td');
+         newRow.appendChild(newCell);
+      }
+      table.appendChild(newRow);
+   }
    let newRow = document.createElement('tr');
-   for (let j = 0; j < arr[0].length; j++) {
+   for (let i = 0; i < arr[0].length; i++) {
       let newCell = document.createElement('td');
+      newCell.className = 'disabled';
+      if (i < 3 || i > 5) {
+         newCell.className = 'black disabled';
+      }
       newRow.appendChild(newCell);
    }
    table.appendChild(newRow);
 }
-let newRow = document.createElement('tr');
-for (let i = 0; i < arr[0].length; i++) {
-   let newCell = document.createElement('td');
-   newCell.className = 'disabled';
-   if (i < 3 || i > 5) {
-      newCell.className = 'black disabled';
-   }
-   newRow.appendChild(newCell);
-}
-table.appendChild(newRow);
-const cells = document.getElementsByTagName('td');
-for (let i = 0; i < cells.length; i++) {
-   if (i <= 7) {
-      cells[i].className = 'black disabled';
-   } else if (i > 7 && i % 8 === 0) {
-      cells[i].className = 'black disabled';
-      cells[i + 7].className = 'black disabled';
+
+function paintCells() {
+   const cells = document.getElementsByTagName('td');
+   for (let i = 0; i < cells.length; i++) {
+      if (i <= 7) {
+         cells[i].className = 'black disabled';
+      } else if (i > 7 && i % 8 === 0) {
+         cells[i].className = 'black disabled';
+         cells[i + 7].className = 'black disabled';
+      }
    }
 }
-const button = document.getElementById('add-row');
-const submitButton = document.getElementById('submit');
-// button.addEventListener('click', createRow);
-submitButton.addEventListener('click', () => submitMaze(arr));
-table.addEventListener('mousedown', () => {
-   table.addEventListener('mouseover', colorize);
-});
-table.addEventListener('click', colorize);
-table.addEventListener('mouseup', () => {
-   table.removeEventListener('mouseover', colorize, false);
-});
+function createMazeArr() {
+   const arr = new Array(9).fill(0);
+   for (let i = 0; i < arr.length; i++) {
+      let newArr = new Array(8).fill(0);
+      arr[i] = newArr;
+   }
+   return arr;
+}
+function addEventListeners() {
+   const submitButton = document.getElementById('submit');
+   // button.addEventListener('click', createRow);
+   submitButton.addEventListener('click', () => submitMaze(arr));
+   table.addEventListener('mousedown', () => {
+      table.addEventListener('mouseover', colorize);
+   });
+   table.addEventListener('click', colorize);
+   table.addEventListener('mouseup', () => {
+      table.removeEventListener('mouseover', colorize, false);
+   });
+}
+
+(function createMazeBuilder() {
+   createCanvas(createMazeArr());
+   paintCells();
+   addEventListeners();
+})();
