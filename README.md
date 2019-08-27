@@ -24,7 +24,7 @@ You can seed the file by running <code>npm run seed</code>
 
 ## Deployment
 
-This app was deployed on heroku at the following link: https://a-maze-thing.herokuapp.com/
+This app is deployed on heroku at the following link: https://a-maze-thing.herokuapp.com/
 
 ## Built With
 
