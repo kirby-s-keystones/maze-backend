@@ -8,16 +8,34 @@ A Maze Thing Backend is the CRUD webapp component of the A Maze Thing native app
 ## Getting Started
 
 <h3>Basic setup</h3>
-Fork the project then clone it: <br/>
-<code>git clone https://github.com/yourgithubname/maze-backend.git</code> <br>
-Install modules: <br/>
-<code>npm install</code> <br/>
-Run express server: <br/>
-<code>create postgres database</code> <br/>
-createdb amazething <br/>
-<code>npm start</code> <br/>
-Visit the website at: <br/>
-<code>"https://localhost:8080"</code>
+Fork the project then clone it:
+
+```
+git clone https://github.com/yourgithubname/maze-backend.git
+```
+
+Install modules:
+
+```
+npm install <br/>
+```
+
+Create database in terminal:
+```
+createdb amazething
+```
+
+Start Express Server
+
+```
+npm start
+```
+
+Visit the website at:
+
+```
+https://localhost:8080
+```
 
 <h3>Seeding</h3>
 You can seed the file by running <code>npm run seed</code>
