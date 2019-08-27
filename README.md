@@ -49,4 +49,4 @@ This project is licensed under the MIT License
 
 -  <b>Ben Rodriguez @b17z</b>
 -  <b>John McDonald @johnptmcdonald</b>
--  <b>Erik Folks @efolks</b>
+-  <b>Eric Folks @efolks</b>
