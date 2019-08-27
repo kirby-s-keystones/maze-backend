@@ -17,7 +17,7 @@ git clone https://github.com/yourgithubname/maze-backend.git
 Install modules:
 
 ```
-npm install <br/>
+npm install
 ```
 
 Create database in terminal:
