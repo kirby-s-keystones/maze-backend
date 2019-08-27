@@ -46,7 +46,7 @@ async function submitMaze(arr) {
    }
 }
 
-function createCanvas(arr) {
+function createCanvasFromArr(arr) {
    const table = document.getElementById('table');
 
    for (let i = 0; i < arr.length - 1; i++) {
@@ -102,7 +102,7 @@ function addEventListeners() {
 }
 
 (function createMazeBuilder() {
-   createCanvas(createMazeArr());
+   createCanvasFromArr(createMazeArr());
    paintCells();
    addEventListeners();
 })();
